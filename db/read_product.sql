@@ -1,1 +1,1 @@
-SELECT * FROM proudct WHERE product_id = '${name}';
+SELECT * FROM proudct WHERE product_id = $1;
