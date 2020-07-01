@@ -1,0 +1,1 @@
+SELECT * FROM proudct WHERE product_id = '${name}';
