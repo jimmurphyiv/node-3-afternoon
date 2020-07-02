@@ -22,7 +22,7 @@ ssl: {rejectUnauthorized: false}
 app.get('/api/products', products_controller.getAllProducts);
 app.get('/api/products/:id', products_controller.getOneProduct);
 app.put('/api/products/:id', products_controller.updateProducts);
-app.post('/api/product', products_controller.addProduct);
+app.post('/api/products', products_controller.create);
 app.delete('/api/products/:id', products_controller.deleteProducts);
 
 app.listen(SERVER_PORT, () => {
