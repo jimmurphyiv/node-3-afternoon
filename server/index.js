@@ -7,14 +7,16 @@ const app = express();
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env;
 
+app.use(express.json());
+
 massive({
 connectionString: CONNECTION_STRING,
 ssl: {rejectUnauthorized: false}
-}) .then(dbInstance => {
-    app.set("db", dbInstance);
-  }) .catch(err => console.log(err));
+}) .then(db => {
+    app.set("db", db);
+   console.log('db connected');
+});
 
-app.use(express.json());
 
 
 app.get('/api/products', products_controller.getAllProducts);
