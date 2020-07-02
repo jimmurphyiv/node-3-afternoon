@@ -4,9 +4,10 @@ module.exports = {
         const db = req.app.get('db');
     
         db.read_products('db')
-          .then(products => res.status(200).send(products))
-          .catch(err => res.status(500).send(err)
-          );
+          .then(products => {res.status(200).send(products);
+          })
+          .catch(err => { res.status(500).send(err);
+          });
       },
     
     create: (req, res) => {
@@ -25,8 +26,8 @@ module.exports = {
 
         db.read_product({id})
           .then(product => res.status(200).send(product))
-          .catch(err => res.status(500).send(err)
-          );
+          .catch(err => { res.status(500).send(err);
+          });
       },
     
       
@@ -38,8 +39,8 @@ module.exports = {
 
         db.update_product({description, id})
           .then( () => res.sendStatus(200))
-          .catch(err => res.status(500).send(err)
-          );
+          .catch(err => { res.status(500).send(err);
+          });
       },
     
       deleteProducts: (req, res) => {
@@ -48,7 +49,7 @@ module.exports = {
 
         db.delete_product({id})
           .then( () => res.sendStatus(200))
-          .catch(err => res.status(500).send(err)
-          );
+          .catch(err => { res.status(500).send(err);
+          });
       }
     };

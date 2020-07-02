@@ -15,7 +15,7 @@ ssl: {rejectUnauthorized: false}
 }) .then(db => {
     app.set("db", db);
    console.log('db connected');
-});
+}) .catch(err => console.log(err))
 
 
 
